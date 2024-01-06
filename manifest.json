@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Custom script my page",
+  "description": "easily inject scripts to pages",
+  "version": "1.0",
+  "permissions": [
+    "storage",
+    "nativeMessaging"
+  ],
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "ico.png"
+  },
+  "background": {
+    "service_worker": "scripts/cli_store.js"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "scripts/cli_script_exec.js",
+        "scripts/cli_store.js"
+      ],
+      "matches": [
+        "*://*/*"
+      ]
+    }
+  ]
+}
